@@ -3,6 +3,7 @@ import { useState } from "react";
 import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
 import { FiSend } from "react-icons/fi";
+import { sendChatMessage } from './services/api';
 
 interface Message {
   content: string;
@@ -24,20 +25,18 @@ export default function Home() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8000/query', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ question: input }),
-      });
-
-      const data = await response.json();
-      const botMessage: Message = { content: data.answer || data.response || "Sorry, I couldn't process that.", isUser: false };
+      const result = await sendChatMessage(input);
+      const botMessage: Message = { 
+        content: result,
+        isUser: false 
+      };
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
-      console.error('Error:', error);
-      const errorMessage: Message = { content: "Sorry, there was an error processing your request.", isUser: false };
+      console.error('Chat Error:', error);
+      const errorMessage: Message = { 
+        content: "Sorry, there was an error processing your request. Please try again later.", 
+        isUser: false 
+      };
       setMessages(prev => [...prev, errorMessage]);
     } finally {
       setIsLoading(false);
