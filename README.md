@@ -1,3 +1,9 @@
+# Chatbot Frontend
+
+This is the frontend for the chatbot application. It is built with Next.js and uses Tailwind CSS for styling.
+
+[Deployed frontend Link](https://mango-wave-07f8b9f10.4.azurestaticapps.net/)
+
 # Next.js Setup Instructions
 
 To set up and run the Next.js frontend for this chatbot, follow these steps:
