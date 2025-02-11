@@ -90,8 +90,8 @@ export default function Home() {
                 </div>
                 <h1 className="text-2xl font-semibold mb-2">Welcome to Promtior Assistant</h1>
                 <p className="text-gray-600 mb-8">
-                  Ask me about our GenAI solutions and services. I'm here to help you understand how we can transform your business.
-                </p>
+                Ask me about our GenAI solutions and services. I&apos;m here to help you understand how we can transform your business.
+              </p>
               </div>
 
               <div>
@@ -129,11 +129,11 @@ export default function Home() {
                       <ReactMarkdown
                         className="prose prose-sm prose-slate max-w-none"
                         components={{
-                          p: ({node, ...props}) => <p className="mb-3 last:mb-0" {...props} />,
-                          ul: ({node, ...props}) => <ul className="list-disc ml-4 mb-3 space-y-1" {...props} />,
-                          ol: ({node, ...props}) => <ol className="list-decimal ml-4 mb-3 space-y-1" {...props} />,
-                          li: ({node, ...props}) => <li className="mb-1" {...props} />,
-                          strong: ({node, ...props}) => <strong className="font-semibold text-gray-900" {...props} />,
+                          p: ({...props}) => <p className="mb-3 last:mb-0" {...props} />,
+                          ul: ({...props}) => <ul className="list-disc ml-4 mb-3 space-y-1" {...props} />,
+                          ol: ({...props}) => <ol className="list-decimal ml-4 mb-3 space-y-1" {...props} />,
+                          li: ({...props}) => <li className="mb-1" {...props} />,
+                          strong: ({...props}) => <strong className="font-semibold text-gray-900" {...props} />,
                         }}
                       >
                         {message.content}
